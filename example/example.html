@@ -1,18 +1,20 @@
 <div class="container-fluid">
-  <h1>Angular Timeline</h1>
-  <button ng-click="addEvent()">Add New Event</button>
-  <button ng-click="leftAlign()">Left Side</button>
-  <button ng-click="rightAlign()">Right Side</button>
-  <button ng-click="defaultAlign()">Alternate Sides</button>
+  <h1 class="text-center" style="position: relative; background: rgba(255, 255, 255, 0.33);">Relatório da Semana - Everton B.D.C</h1>
+  <div class="hidden">
+    <button ng-click="addEvent()">Add New Event</button>
+    <button ng-click="leftAlign()">Left Side</button>
+    <button ng-click="rightAlign()">Right Side</button>
+    <button ng-click="defaultAlign()">Alternate Sides</button>    
+  </div>
   <br/>
   <br/>
   <timeline>
     <!-- can also hard-code to side="left" or side="right" -->
     <timeline-event ng-repeat="event in events" side="{{side}}">
       <!-- uses angular-scroll-animate to give it some pop -->
-      <timeline-badge class="{{event.badgeClass}} timeline-hidden"
+      <timeline-badge class="{{$index}} {{event.badgeClass}} timeline-hidden "
                       when-visible="animateElementIn" when-not-visible="animateElementOut">
-        <i class="glyphicon {{event.badgeIconClass}}"></i>
+        <i class="{{event.badgeIconClass}}"></i>
       </timeline-badge>
 
       <!-- uses angular-scroll-animate to give it some pop -->
